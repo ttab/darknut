@@ -1,7 +1,7 @@
 # Darknut
 
 [![GoDev](https://img.shields.io/static/v1?label=godev&message=reference&color=00add8)][godev]
-[![Build Status](https://github.com/ttab/darknut/actions/workflows/test.yml/badge.svg?branch=master)][actions]
+[![Build Status](https://github.com/ttab/darknut/actions/workflows/test.yaml/badge.svg?branch=main)][actions]
 
 ![Image](docs/darknut.png?raw=true)
 
