@@ -11,43 +11,43 @@ Slices of blocks and fields that are pointers will be treated as optional, all o
 
 ``` go
 type planningItem struct {
-	UUID                uuid.UUID         `newsdoc:"uuid"`
-	Title               string            `newsdoc:"title"`
-	Meta                planningItemBlock `newsdoc:"meta,type=core/planning-item"`
+    UUID                uuid.UUID         `newsdoc:"uuid"`
+    Title               string            `newsdoc:"title"`
+    Meta                planningItemBlock `newsdoc:"meta,type=core/planning-item"`
     InternalDescription *descriptionBlock `newsdoc:"meta,type=core/description,role=internal"`
-	PublicDescription   *descriptionBlock `newsdoc:"meta,type=core/description,role=public"`
-	Assignments         []assignmentBlock `newsdoc:"meta,type=core/assignment"`
+    PublicDescription   *descriptionBlock `newsdoc:"meta,type=core/description,role=public"`
+    Assignments         []assignmentBlock `newsdoc:"meta,type=core/assignment"`
 }
 
 type descriptionBlock struct {
-	Role string `newsdoc:"role"`
-	Text string `newsdoc:"data.text"`
+    Role string `newsdoc:"role"`
+    Text string `newsdoc:"data.text"`
 }
 
 type planningItemBlock struct {
-	Date        *time.Time `newsdoc:"data.date,format=2006-01-02"`
-	Publish     time.Time  `newsdoc:"data.publish"`
-	PublishSlot *int       `newsdoc:"data.publish_slot"`
-	Public      bool       `newsdoc:"data.public"`
-	Tentative   bool       `newsdoc:"data.tentative"`
-	Urgency     int        `newsdoc:"data.urgency"`
+    Date        *time.Time `newsdoc:"data.date,format=2006-01-02"`
+    Publish     time.Time  `newsdoc:"data.publish"`
+    PublishSlot *int       `newsdoc:"data.publish_slot"`
+    Public      bool       `newsdoc:"data.public"`
+    Tentative   bool       `newsdoc:"data.tentative"`
+    Urgency     int        `newsdoc:"data.urgency"`
 }
 
 type assignmentBlock struct {
-	Starts    time.Time        `newsdoc:"data.starts"`
-	Ends      *time.Time       `newsdoc:"data.ends"`
-	Status    string           `newsdoc:"data.status"`
-	FullDay   bool             `newsdoc:"data.full_day"`
-	Kind      []assignmentKind `newsdoc:"meta,type=core/assignment-kind"`
-	Assignees []assigneeLink   `newsdoc:"links,rel=assignee"`
+    Starts    time.Time        `newsdoc:"data.starts"`
+    Ends      *time.Time       `newsdoc:"data.ends"`
+    Status    string           `newsdoc:"data.status"`
+    FullDay   bool             `newsdoc:"data.full_day"`
+    Kind      []assignmentKind `newsdoc:"meta,type=core/assignment-kind"`
+    Assignees []assigneeLink   `newsdoc:"links,rel=assignee"`
 }
 
 type assignmentKind struct {
-	Value string `newsdoc:"value"`
+    Value string `newsdoc:"value"`
 }
 
 type assigneeLink struct {
-	UUID uuid.UUID `newsdoc:"uuid"`
+    UUID uuid.UUID `newsdoc:"uuid"`
 }
 ```
 
