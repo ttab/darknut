@@ -68,7 +68,9 @@ Date: %v
 Timestamp: %v
 Public: %v
 
-`, item.UUID, item.Meta.Date, item.Meta.Timestamp, item.Meta.Public)
+`,
+		item.UUID, item.Meta.Date.Format(time.RFC3339),
+		item.Meta.Timestamp.Format(time.RFC3339), item.Meta.Public)
 
 	for _, a := range item.Associates {
 		fmt.Printf("* %s (%s)", a.Name, a.Type)
@@ -82,8 +84,8 @@ Public: %v
 
 	// Output:
 	// UUID: d04e9871-c3df-4fb0-878f-23f8d5ada7c2
-	// Date: 2023-08-13 00:00:00 +0000 UTC
-	// Timestamp: 2023-08-21 14:34:47 +0200 CEST
+	// Date: 2023-08-13T00:00:00Z
+	// Timestamp: 2023-08-21T14:34:47+02:00
 	// Public: true
 	//
 	// * Ren (dog/chihuahua)
