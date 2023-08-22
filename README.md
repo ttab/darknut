@@ -3,7 +3,9 @@
 [![GoDev](https://img.shields.io/static/v1?label=godev&message=reference&color=00add8)][godev]
 [![Build Status](https://github.com/ttab/darknut/actions/workflows/test.yaml/badge.svg?branch=main)][actions]
 
-![Image](docs/darknut.png?raw=true)
+<p>
+  <img src="https://github.com/ttab/darknut/raw/main/docs/darknut.png?raw=true" width="256" alt="The Darknut">
+</p>
 
 Darknut can be used to unmarshal a NewsDoc into a specialised struct. Mostly useful for getting strict typing of data attributes and flattening the data structure.
 
