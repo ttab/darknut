@@ -31,15 +31,15 @@ type planningItemBlock struct {
 	Date        *time.Time `newsdoc:"data.date,format=2006-01-02"`
 	Publish     time.Time  `newsdoc:"data.publish"`
 	PublishSlot *int       `newsdoc:"data.publish_slot"`
-	Public      bool       `newsdoc:"data.public"`
-	Tentative   bool       `newsdoc:"data.tentative"`
+	Public      *bool      `newsdoc:"data.public"`
+	Tentative   bool       `newsdoc:"data.tentative,optional"`
 	Urgency     int        `newsdoc:"data.urgency"`
 }
 
 type assignmentBlock struct {
 	Starts    time.Time        `newsdoc:"data.starts"`
 	Ends      *time.Time       `newsdoc:"data.ends"`
-	Status    string           `newsdoc:"data.status"`
+	Status    *string          `newsdoc:"data.status"`
 	FullDay   bool             `newsdoc:"data.full_day"`
 	Kind      []assignmentKind `newsdoc:"meta,type=core/assignment-kind"`
 	Assignees []assigneeLink   `newsdoc:"links,rel=assignee"`

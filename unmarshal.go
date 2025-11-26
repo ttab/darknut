@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"reflect"
+	"slices"
 	"strconv"
 	"strings"
 	"time"
@@ -99,7 +100,7 @@ func readValue(
 	pointer := field.Kind() == reflect.Pointer
 
 	value, ok := attributes(ndtag.Name)
-	if !ok && !pointer {
+	if !ok && !pointer && !slices.Contains(ndtag.Options, "optional") {
 		return errors.New("missing required value")
 	}
 
@@ -117,7 +118,7 @@ func readValue(
 	switch kind { //nolint:exhaustive
 	case reflect.String:
 		if pointer {
-			field.Set(reflect.ValueOf(value))
+			field.Set(reflect.ValueOf(&value))
 		} else {
 			field.SetString(value)
 		}
@@ -130,7 +131,7 @@ func readValue(
 		}
 
 		if pointer {
-			field.Set(reflect.ValueOf(b))
+			field.Set(reflect.ValueOf(&b))
 		} else {
 			field.SetBool(b)
 		}
